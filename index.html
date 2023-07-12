@@ -303,8 +303,10 @@ max-width: 80%;
  }
 
 .container form {
-margin-left: 30%;
-margin-right:30%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
 }
 
 @media (max-width: 576px) {
@@ -314,26 +316,21 @@ margin-right:10%;
 }
 }
 
-
-form .h3 {
-  text-align: center;
-
+iframe {
+    display: block;
+    border-style:none;
+    justify-content: center;
 }
-.form-title {
-  text-align: center;
-  margin-bottom: 10px;
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
-
-.form .btn {
-  margin-top: 20px;
-}
-
-
-
-}
-
-
-
   </style>
 </head>
 <body>
@@ -564,46 +561,13 @@ form .h3 {
 </section>
 <!--End of Business Section-->
 <!--Form start-->
-<div class="container form" >
-  <h3 class ="form-title">CREATE YOUR PROFILE</h3>
-  <form id="profileForm"  action="https://formsubmit.co/aaron@dancersociety.com" method="POST">
-    <div class="form-group">
-      <label for="userType" id="join-form">Dancer or Company?</label>
-      <select class="form-control" id="userType">
-        <option value="Company">Dancer</option>
-        <option value="Dancer">Company</option>
-      </select>
-    </div>
+<div class="container form">
+      <label for="userType" id="join-form"></label>
+      <iframe class= "responsive-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSdOW0MudncxzaUtHDkeCbv-dpguo9u0b7xSDfInW7678VQAgA/viewform?embedded=true" 
+      width="100%" height="1348" frameborder="1000" marginheight="0" marginwidth="0">Loading…</iframe> 
+</div>
 
-  <div class = "row"> 
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input type="text" class="form-control" id="firstName" name="firstName" required>
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input type="text" class="form-control" id="lastName" name="lastName" required>
-    </div>
-  </div>   
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="phone">Phone</label>
-      <input type="tel" class="form-control" id="phone" name="phone" required>
-    </div>
-    <div class="form-group">
-      <label for="city">City</label>
-      <input type="text" class="form-control" id="city" name="city" required>
-    </div>
-    <div class="form-group">
-      <label for="state">State</label>
-      <input type="text" class="form-control" id="state" name="state" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  <p id="submissionStatus"></p>
+     
 </div>
 
 </body>
@@ -614,14 +578,7 @@ form .h3 {
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
-  <script>
-    // Disable form submission after the first submit
-    $(document).ready(function() {
-      $('#myForm').submit(function() {
-        $('button[type="submit"]').attr('disabled', true);
-      });
-    });
-  </script>
+
   
 
   </section>
